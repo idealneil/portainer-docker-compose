@@ -1,0 +1,16 @@
+---
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    environment:
+      - PUID=1000 #"id $user" to find your uid & gid values
+      - PGID=1000
+      - TZ=<TimeZone> #Set this to your local time zone "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
+    volumes:
+      - /home/user/appdata/portainer:/data #change 'user' for the name of your account
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 9000:9000 #http access
+      - 9443:9443 #https access
+    restart: unless-stopped
