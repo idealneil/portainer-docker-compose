@@ -1,7 +1,7 @@
 # Portainer docker compose install guide
 
 ## Link to the [Portainer](https://www.portainer.io/) website
-Portainer is a great tool to help you manage your containers. If you're new to Docker, Portainer provides you with an easy to use graphical interface, instead of having to use the command line. The traditional method to install Portainer is with "docker run". I prefer to have this part of my docker compose yml file.
+Portainer is a great tool to help manage your containers. If you're new to Docker, Portainer provides you with an easy to use graphical interface, instead of having to use the command line. The traditional method to install Portainer is with "docker run". I prefer to have this as part of my docker compose yml file.
 
 ### Assumptions:
 You already have Docker intalled on your Linux server.
@@ -18,4 +18,28 @@ mkdir portainer
 ```
 Add the contents of the attached 'docker-compose-portainer.yml' file to your existing docker-compose.yml file
 ```
+portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    environment:
+      - PUID=1000 #"id $user" to find your uid & gid values
+      - PGID=1000
+      - TZ=<TimeZone> #Set this to your local time zone "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
+    volumes:
+      - /home/user/appdata/portainer:/data #change 'user' for the name of your account
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 9000:9000 #http access
+      - 9443:9443 #https access
+    restart: unless-stopped
+```
+Update your docker compose file in detatched mode.
+```
+docker compose up -d
+```
 
+Check the logs to see if the container deployed successfully.
+```
+docker logs portainer
+```
+Open a browser to the ip address of your server with port the number you set e.g. 192.168.1.100:9000
