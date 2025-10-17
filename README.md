@@ -52,4 +52,5 @@ Under Administration, navigate to "Environment-related -> Environment -> local"
 
 If you're accessing Portainer on your internal network, enter your internal address e.g. 192.168.1.100
 
-For external servers enter the IP address or domain name for that server (this could even be your Tailscale address). Happy Portainer-ing :)
+For external servers enter the IP address or domain name for that server (this could even be your Tailscale address).
+Happy Portainer-ing :)
