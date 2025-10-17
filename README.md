@@ -43,3 +43,9 @@ Check the logs to see if the container deployed successfully.
 docker logs portainer
 ```
 Open a browser to the ip address of your server with port the number you set e.g. 192.168.1.100:9000
+
+Then create an initial administrator account. Portainer suggests using 'admin' as the username, you can change this to another name that you want. If you don't want anonymous stats collected, untick this before you create the new admin user.
+
+One environment variable I always update straight away is the 'Public IP' address. This makes it easier to open your application from within Portainer.
+
+Under Administration, navigate to "Environment-related -> Environment -> local" If you're accessing Portainer on your internal network, enter your internal address e.g. 192.168.1.100 For external servers enter the IP address or domain name for that server (this could even be your Tailscale address). Happy Portainer-ing :)
