@@ -48,4 +48,8 @@ Then create an initial administrator account. Portainer suggests using 'admin' a
 
 One environment variable I always update straight away is the 'Public IP' address. This makes it easier to open your application from within Portainer.
 
-Under Administration, navigate to "Environment-related -> Environment -> local" If you're accessing Portainer on your internal network, enter your internal address e.g. 192.168.1.100 For external servers enter the IP address or domain name for that server (this could even be your Tailscale address). Happy Portainer-ing :)
+Under Administration, navigate to "Environment-related -> Environment -> local"
+
+If you're accessing Portainer on your internal network, enter your internal address e.g. 192.168.1.100
+
+For external servers enter the IP address or domain name for that server (this could even be your Tailscale address). Happy Portainer-ing :)
